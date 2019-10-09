@@ -1,5 +1,6 @@
 import React from "react";
 import ProjectSummary from "./ProjectSummary";
+import { Link } from "react-router-dom";
 
 const ProjectList = props => {
   const projects = props.projects;
@@ -10,7 +11,11 @@ const ProjectList = props => {
       component reaches out to db so need the following "And" condition */}
       {projects &&
         projects.map(project => {
-          return <ProjectSummary project={project} key={project.id} />;
+          return (
+            <Link to={"/project/" + project.id}>
+              <ProjectSummary project={project} key={project.id} />
+            </Link>
+          );
         })}
     </div>
   );
