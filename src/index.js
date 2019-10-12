@@ -23,7 +23,11 @@ const store = createStore(
     ),
     reduxFirestore(fbConfig),
     //attachAuthIsReady allows you to access property on store firebaseAuthIsReady
-    reactReduxFirebase(fbConfig, { attachAuthIsReady: true })
+    reactReduxFirebase(fbConfig, {
+      useFirestoreForProfile: true,
+      userProfile: "users",
+      attachAuthIsReady: true
+    })
   )
 );
 
